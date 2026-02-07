@@ -1,8 +1,10 @@
-# 图片批量下载器
+# API图片批量下载器
 
 ## 项目描述
 
-这是一个Python脚本，用于批量下载随机图片API的图片。它支持多线程下载，可以配置下载次数以及是否对单张图片使用多个线程进行下载。此外，脚本还集成了日志记录和进度条显示功能，以增强用户体验。
+这是一个Python脚本，用于批量下载随机图片API的图片。它支持多线程下载，可以配置下载次数以及自动去除重复图片下载。此外，脚本还集成了日志记录和进度条显示功能，以增强用户体验。
+
+## 项目上游：https://github.com/myxxr/get-img
 
 ## 安装与运行
 
@@ -12,16 +14,20 @@
 - `concurrent.futures`：用于多线程处理。
 - `logging`：用于日志记录。
 - `tqdm`：用于进度条显示。
+- `pillow`：用于图片处理、校验。
 
 你可以通过以下命令安装所需的库：
-
 ```bash
-pip install requests tqdm
-```
-运行脚本：
-
+pip install requests tqdm pillow
+```  
+国内加速源  
 ```bash
-python get-imgv4.py
+pip install requests tqdm pillow -i https://pypi.tuna.tsinghua.edu.cn/simple
+```  
+运行脚本：  
+
+```bash  
+python api-photos.py
 ```
 ## 如何使用
 
@@ -33,6 +39,7 @@ python get-imgv4.py
 
 多线程下载：利用多线程加速下载过程。
 重复下载：可以设置重复下载图片的次数。
+自动去重：通过计算哈希值自动去除重复下载。  
 日志记录：详细记录下载过程中的信息和警告。
 进度条：直观显示下载进度。
 
